@@ -2,31 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class main : MonoBehaviour
 {
-    public GameObject welcomeText, s1, s2, s3, s4, s5;
     public Button nextButton, backButton;
     public int step = 0;
     private List<GameObject> stepList = new List<GameObject>();
+
+    public TextMeshProUGUI uiText;
     // Start is called before the first frame update
     void Start()
     {
-        // Add step text GameObjects to list
-        stepList.Add(s1);
-        stepList.Add(s2);
-        stepList.Add(s3);
-        stepList.Add(s4);
-        stepList.Add(s5);
-        ////// for 18 more
-
-        // Hide all steps on startup
-        foreach(GameObject step in stepList)
-        {
-            step.SetActive(false);
-        }
-        // Display welcome message on startup
-        welcomeText.SetActive(true);
+        uiText = gameObject.GetComponent<TextMeshProUGUI>();
+        uiText.text = "Welcome! \nThis tutorial will show you how to properly change the blade of the Table Saw";
 
         // TODO: change this for phone (tap instead of click);
         nextButton.onClick.AddListener(nextStep);
@@ -36,40 +25,24 @@ public class main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // hide welcome message when user taps screen
-        if (welcomeText.active && Input.touchCount == 1)
-        {
-            welcomeText.SetActive(false);
-        }
-
         // State tracker (activate text and AR elements based 
         // on the step user is on)
         switch (step)
         {
             case 1:
-                welcomeText.SetActive(false);
-                s2.SetActive(false);
-                s1.SetActive(true);
+                uiText.text = "Before starting any work, be sure you are wearing the proper PPE and the emergency stop is engaged.";
                 break;
             case 2:
-                s3.SetActive(false);
-                s1.SetActive(false);
-                s2.SetActive(true);
+                uiText.text = "On the touch screen:\ntouch the blade icon -> then select the circular arrows";
                 break;
             case 3:
-                s4.SetActive(false);
-                s2.SetActive(false);
-                s3.SetActive(true);
+                uiText.text = "Move the sawdust hood out of the way.";
                 break;
             case 4:
-                s5.SetActive(false);
-                s3.SetActive(false);
-                s4.SetActive(true);
+                uiText.text = "";
                 break;
             case 5:
-                //s6.SetActive(false);
-                s4.SetActive(false);
-                s5.SetActive(true);
+                uiText.text = "Welcome";
                 break;
             default:
                 Debug.Log(step);
