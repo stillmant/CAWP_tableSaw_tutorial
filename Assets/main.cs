@@ -108,7 +108,7 @@ public class main : MonoBehaviour
                 uiText.text = "On the touchscreen, select \"yes\" and select the blade you installed from the databse";
                 break;
             case 23:
-                uiText.text = "FIN";
+                uiText.text = "FIN!";
                 break;
             default:
                 Debug.Log(step);
