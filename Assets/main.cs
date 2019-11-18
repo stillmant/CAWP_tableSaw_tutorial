@@ -12,6 +12,7 @@ public class main : MonoBehaviour
     private List<GameObject> stepList = new List<GameObject>();
 
     public TextMeshProUGUI uiText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,8 +56,8 @@ public class main : MonoBehaviour
                 uiText.text = "Push the \"|\" button above the white light (AR glow around button?)"; // TODO: Maybe use AR to highlight button?
                 break;
             case 6:
-                uiText.text = "Slide the table in the direction of the arrow (AR)"; // TODO: move text out of the way to see AR element
-                // Invoke("hideText", 5);            
+                uiText.text = "Tap \"Next\" and find the \"Astronaut\" target"; // TODO: move text out of the way to see AR element
+                //Invoke("hideText", 5);            
                 break;
             case 7:
                 uiText.text = "";
