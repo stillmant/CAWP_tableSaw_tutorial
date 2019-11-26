@@ -60,14 +60,14 @@ public class main : MonoBehaviour
                 //Invoke("hideText", 5);            
                 break;
             case 7:
-                uiText.text = "";
+                uiText.text = ""; // "Slide until stop, then tap next
                 break;
             case 8:
-                uiText.text = "Pull the safety knob and slide table to end (AR)"; // TODO: move text out of the way to see AR element
+                uiText.text = "Find the \"Drone\" target under the table and tap \"Next\""; // TODO: move text out of the way to see AR element
                 //Invoke("hideText", 5);
                 break;
             case 9:
-                uiText.text = "";
+                uiText.text = ""; // Pull the safety knob and slide table to end (AR)
                 break;
             case 10:
                 uiText.text = "Push red knob to the right and pull fence toward you (AR)";
