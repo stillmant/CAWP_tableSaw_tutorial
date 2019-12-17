@@ -16,6 +16,8 @@ public class main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Screen.SetResolution(1280, 720, true);
+
         uiText = gameObject.GetComponent<TextMeshProUGUI>();
         uiText.text = "Welcome! \nThis tutorial will show you how to properly change the blade of the Table Saw";
 
@@ -63,52 +65,55 @@ public class main : MonoBehaviour
                 uiText.text = ""; // "Slide until stop, then tap next
                 break;
             case 8:
-                uiText.text = "Find the \"Drone\" target under the table and tap \"Next\""; // TODO: move text out of the way to see AR element
+                uiText.text = "Find the \"Drone\" target under the table and tap \"Next\""; 
                 //Invoke("hideText", 5);
                 break;
             case 9:
                 uiText.text = ""; // Pull the safety knob and slide table to end (AR)
                 break;
             case 10:
-                uiText.text = "Push red knob to the right and pull fence toward you (AR)";
+                uiText.text = "Find the \"Oxygen\" target  and tap \"Next\"";
                 break;
             case 11:
-                uiText.text = "Find this tool in the tool compartment (3D model w/ animation)"; // TODO: might want to make model of the tool and hover/ spin it
+                uiText.text = ""; 
                 break;
             case 12:
-                uiText.text = "Loosen the splitter and move out of the way";
+                uiText.text = "Find the allen key in the tool box"; // TODO: might want to make model of the tool and hover/ spin it
                 break;
             case 13:
-                uiText.text = "Loosen locking screw on main spindle (AR arrow pointing to screw)";
+                uiText.text = "Loosen the splitter and move out of the way"; // GOOD PLACE TO USE MODEL TARGET
                 break;
             case 14:
-                uiText.text = "Unscrew main spindle counterclockwise and remove";
+                uiText.text = "Loosen locking screw on main spindle (AR arrow pointing to screw)";
                 break;
             case 15:
-                uiText.text = "Replace blade. \nCAUTION: Blade teeth must face right";
+                uiText.text = "Unscrew main spindle counterclockwise and remove";
                 break;
             case 16:
-                uiText.text = "Check blade is flush and hand tighten main spindle (AR arrow clockwise)";
+                uiText.text = "Replace blade. \nCAUTION: Blade teeth must face right";
                 break;
             case 17:
-                uiText.text = "Tighten lock screw";
-                break;
-            case 18:
                 uiText.text = "Check blade is flush and hand tighten main spindle (AR arrow clockwise)";
                 break;
+            case 18:
+                uiText.text = "Tighten lock screw";
+                break;
             case 19:
-                uiText.text = "Move splitter back, making sure there is enough clearance and tighten"; // TODO: AR wireframe could be used here
+                uiText.text = "Check blade is flush and hand tighten main spindle (AR arrow clockwise)";
                 break;
             case 20:
-                uiText.text = "Close the fence \nCheck both sides are secure (AR arrow)";
+                uiText.text = "Move splitter back, making sure there is enough clearance and tighten"; // TODO: AR wireframe could be used here
                 break;
             case 21:
-                uiText.text = "Slide table back to its original position (AR arrow)";
+                uiText.text = "Close the fence \nCheck both sides are secure (AR arrow)";
                 break;
             case 22:
-                uiText.text = "On the touchscreen, select \"yes\" and select the blade you installed from the databse";
+                uiText.text = "Slide table back to its original position (AR arrow)";
                 break;
             case 23:
+                uiText.text = "On the touchscreen, select \"yes\" and select the blade you installed from the databse";
+                break;
+            case 24:
                 uiText.text = "FIN!";
                 break;
             default:
