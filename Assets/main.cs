@@ -7,7 +7,7 @@ using TMPro;
 public class main : MonoBehaviour
 {
     public Button nextButton, backButton, exit;
-    public RawImage bladeIcon, bladeChange;
+    public RawImage bladeIcon, bladeChange, backPlane;
     public int step = 0;
     private List<GameObject> stepList = new List<GameObject>();
 
@@ -18,26 +18,21 @@ public class main : MonoBehaviour
     {
         Screen.SetResolution(1280, 720, true);
 
-        uiText = gameObject.GetComponent<TextMeshProUGUI>();
         uiText.text = "Welcome! \nThis tutorial will show you how to properly change the blade of the Table Saw";
 
         bladeIcon.gameObject.SetActive(false);
         bladeChange.gameObject.SetActive(false);
-
-        nextButton.onClick.AddListener(nextStep);
-        backButton.onClick.AddListener(previousStep);
-        exit.onClick.AddListener(finish);
     }
 
     // Update is called once per frame
-    void Update()
+    void changeStep()
     {
         // State tracker (activate text and AR elements based 
         // on the step user is on)
         switch (step)
         {
             case 1:
-                uiText.text = "Before starting any work, be sure you are wearing the proper PPE and the emergency stop is engaged.";
+                uiText.text = "Before starting any work, be sure you are wearing the proper PPE and the emergency stop is engaged";
                 bladeIcon.gameObject.SetActive(false);
                 break;
             case 2:
@@ -51,34 +46,39 @@ public class main : MonoBehaviour
                 bladeIcon.gameObject.SetActive(false);
                 break;
             case 4:
-                uiText.text = "Move the sawdust hood out of the way. (3D scan AR)"; // TODO: Get scan, build model target and arrow animation
+                uiText.text = "Move the sawdust hood out of the way (3D scan AR)"; // TODO: Get scan, build model target and arrow animation
                 bladeChange.gameObject.SetActive(false);
                 break;
             case 5:
+                backPlane.gameObject.SetActive(true);
                 uiText.text = "Push the \"|\" button above the white light (AR glow around button?)"; // TODO: Maybe use AR to highlight button?
                 break;
             case 6:
-                uiText.text = "Tap \"Next\" and find the \"Astronaut\" target"; // TODO: move text out of the way to see AR element
-                //Invoke("hideText", 5);            
+                uiText.text = "Find the \"Astronaut\" target and tap \"Next\""; // TODO: move text out of the way to see AR element           
                 break;
             case 7:
                 uiText.text = ""; // "Slide until stop, then tap next
+                backPlane.gameObject.SetActive(false);
                 break;
             case 8:
+                backPlane.gameObject.SetActive(true);
                 uiText.text = "Find the \"Drone\" target under the table and tap \"Next\""; 
-                //Invoke("hideText", 5);
                 break;
             case 9:
                 uiText.text = ""; // Pull the safety knob and slide table to end (AR)
+                backPlane.gameObject.SetActive(false);
                 break;
             case 10:
-                uiText.text = "Find the \"Oxygen\" target  and tap \"Next\"";
+                backPlane.gameObject.SetActive(true);
+                uiText.text = "Find the \"Oxygen\" target and tap \"Next\"";
                 break;
             case 11:
-                uiText.text = ""; 
+                uiText.text = "";
+                backPlane.gameObject.SetActive(false);
                 break;
             case 12:
-                uiText.text = "Find the allen key in the tool box"; // TODO: might want to make model of the tool and hover/ spin it
+                backPlane.gameObject.SetActive(true);
+                uiText.text = "Find the Allen key in the tool box"; // TODO: might want to make model of the tool and hover/ spin it
                 break;
             case 13:
                 uiText.text = "Loosen the splitter and move out of the way"; // GOOD PLACE TO USE MODEL TARGET
@@ -87,7 +87,7 @@ public class main : MonoBehaviour
                 uiText.text = "Loosen locking screw on main spindle (AR arrow pointing to screw)";
                 break;
             case 15:
-                uiText.text = "Unscrew main spindle counterclockwise and remove";
+                uiText.text = "Unscrew main spindle counter clockwise and remove";
                 break;
             case 16:
                 uiText.text = "Replace blade. \nCAUTION: Blade teeth must face right";
@@ -111,7 +111,7 @@ public class main : MonoBehaviour
                 uiText.text = "Slide table back to its original position (AR arrow)";
                 break;
             case 23:
-                uiText.text = "On the touchscreen, select \"yes\" and select the blade you installed from the databse";
+                uiText.text = "On the touchscreen, select \"yes\" and select the blade you installed from the database";
                 break;
             case 24:
                 uiText.text = "FIN!";
@@ -121,25 +121,22 @@ public class main : MonoBehaviour
                 break;
         }
     }
-    /*
-    void hideText()
-    {
-        uiText.gameObject.SetActive(false);
-    } */
 
-    void nextStep()
+    public void nextStep()
     {
         step++;
+        changeStep();
         Debug.Log(step);
     }
 
-    void previousStep()
+    public void previousStep()
     {
         step--;
+        changeStep();
         Debug.Log(step);
     }
 
-    void finish()
+    public void finish()
     {
         Application.Quit();
         Debug.Log("exit");
