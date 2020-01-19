@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="Tablesaw Hood 1" motionHint="static"/>
+
+</Tracking>
+
+<Assembly name="Tablesaw Hood 1s_assembly" assemblyId="1a04d0d4b7924fdcabea3abb56f3baec">
+<Part name="Tablesaw Hood 1" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="viewpoint_0000" translation="0.0751399 -0.0164324 0.700192" rotation="AD: 0.9995537809459283 -0.24998150579940226 0.12980057882544072 214.121" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>
