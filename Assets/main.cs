@@ -9,7 +9,8 @@ public class main : MonoBehaviour
     public Button nextButton, backButton, exit;
     public RawImage bladeIcon, bladeChange, backPlane;
     public int step = 0;
-    private List<GameObject> stepList = new List<GameObject>();
+    
+    public GameObject hood;
 
     public TextMeshProUGUI uiText;
 
@@ -22,6 +23,7 @@ public class main : MonoBehaviour
 
         bladeIcon.gameObject.SetActive(false);
         bladeChange.gameObject.SetActive(false);
+        hood.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,74 +48,82 @@ public class main : MonoBehaviour
                 bladeIcon.gameObject.SetActive(false);
                 break;
             case 4:
-                uiText.text = "Move the sawdust hood out of the way (3D scan AR)"; // TODO: Get scan, build model target and arrow animation
+                backPlane.gameObject.SetActive(true);
+                uiText.text = "Move the sawdust hood out of the way. Tap next and align the wireframe with the black handle on the hood."; // TODO: Get scan, build model target and arrow animation
                 bladeChange.gameObject.SetActive(false);
                 break;
             case 5:
+                backPlane.gameObject.SetActive(false);
+                hood.gameObject.SetActive(true);
+                uiText.text = ""; 
+                break;
+            case 6:
+                hood.gameObject.SetActive(false);
                 backPlane.gameObject.SetActive(true);
                 uiText.text = "Push the \"|\" button above the white light (AR glow around button?)"; // TODO: Maybe use AR to highlight button?
                 break;
-            case 6:
-                uiText.text = "Find the \"Astronaut\" target and tap \"Next\""; // TODO: move text out of the way to see AR element           
-                break;
             case 7:
+                backPlane.gameObject.SetActive(true);
+                uiText.text = "Find the \"Astronaut\" target and tap \"Next\"";    
+                break;
+            case 8:
                 uiText.text = ""; // "Slide until stop, then tap next
                 backPlane.gameObject.SetActive(false);
                 break;
-            case 8:
+            case 9:
                 backPlane.gameObject.SetActive(true);
                 uiText.text = "Find the \"Drone\" target under the table and tap \"Next\""; 
                 break;
-            case 9:
+            case 10:
                 uiText.text = ""; // Pull the safety knob and slide table to end (AR)
                 backPlane.gameObject.SetActive(false);
                 break;
-            case 10:
+            case 11:
                 backPlane.gameObject.SetActive(true);
                 uiText.text = "Find the \"Oxygen\" target and tap \"Next\"";
                 break;
-            case 11:
+            case 12:
                 uiText.text = "";
                 backPlane.gameObject.SetActive(false);
                 break;
-            case 12:
+            case 13:
                 backPlane.gameObject.SetActive(true);
                 uiText.text = "Find the Allen key in the tool box"; // TODO: might want to make model of the tool and hover/ spin it
                 break;
-            case 13:
+            case 14:
                 uiText.text = "Loosen the splitter and move out of the way"; // GOOD PLACE TO USE MODEL TARGET
                 break;
-            case 14:
+            case 15:
                 uiText.text = "Loosen locking screw on main spindle (AR arrow pointing to screw)";
                 break;
-            case 15:
+            case 16:
                 uiText.text = "Unscrew main spindle counter clockwise and remove";
                 break;
-            case 16:
+            case 17:
                 uiText.text = "Replace blade. \nCAUTION: Blade teeth must face right";
                 break;
-            case 17:
-                uiText.text = "Check blade is flush and hand tighten main spindle (AR arrow clockwise)";
-                break;
             case 18:
-                uiText.text = "Tighten lock screw";
+                uiText.text = "Check blade is flush and hand tighten main spindle (AR arrow clockwise)";
                 break;
             case 19:
-                uiText.text = "Check blade is flush and hand tighten main spindle (AR arrow clockwise)";
+                uiText.text = "Tighten lock screw";
                 break;
             case 20:
-                uiText.text = "Move splitter back, making sure there is enough clearance and tighten"; // TODO: AR wireframe could be used here
+                uiText.text = "Check blade is flush and hand tighten main spindle (AR arrow clockwise)";
                 break;
             case 21:
-                uiText.text = "Close the fence \nCheck both sides are secure (AR arrow)";
+                uiText.text = "Move splitter back, making sure there is enough clearance and tighten"; // TODO: AR wireframe could be used here
                 break;
             case 22:
-                uiText.text = "Slide table back to its original position (AR arrow)";
+                uiText.text = "Close the fence \nCheck both sides are secure (AR arrow)";
                 break;
             case 23:
-                uiText.text = "On the touchscreen, select \"yes\" and select the blade you installed from the database";
+                uiText.text = "Slide table back to its original position (AR arrow)";
                 break;
             case 24:
+                uiText.text = "On the touchscreen, select \"yes\" and select the blade you installed from the database";
+                break;
+            case 25:
                 uiText.text = "FIN!";
                 break;
             default:
