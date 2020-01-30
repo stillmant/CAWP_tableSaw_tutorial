@@ -12,6 +12,8 @@ public class main : MonoBehaviour
     
     public GameObject hood;
 
+    private GameObject guideViewRenderer;
+
     public TextMeshProUGUI uiText;
 
     // Start is called before the first frame update
@@ -24,6 +26,8 @@ public class main : MonoBehaviour
         bladeIcon.gameObject.SetActive(false);
         bladeChange.gameObject.SetActive(false);
         hood.gameObject.SetActive(false);
+
+        guideViewRenderer = GameObject.Find("GuideViewRenderer");
     }
 
     // Update is called once per frame
@@ -51,13 +55,16 @@ public class main : MonoBehaviour
                 backPlane.gameObject.SetActive(true);
                 uiText.text = "Move the sawdust hood out of the way. Tap next and align the wireframe with the black handle on the hood."; // TODO: Get scan, build model target and arrow animation
                 bladeChange.gameObject.SetActive(false);
+                guideViewRenderer.gameObject.SetActive(false);
                 break;
             case 5:
                 backPlane.gameObject.SetActive(false);
+                guideViewRenderer.gameObject.SetActive(true);
                 hood.gameObject.SetActive(true);
                 uiText.text = ""; 
                 break;
             case 6:
+                guideViewRenderer.gameObject.SetActive(false);
                 hood.gameObject.SetActive(false);
                 backPlane.gameObject.SetActive(true);
                 uiText.text = "Push the \"|\" button above the white light (AR glow around button?)"; // TODO: Maybe use AR to highlight button?
