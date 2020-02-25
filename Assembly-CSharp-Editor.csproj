@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\TurnTheGameOn\Arrow WayPointer\Scripts\Editor\Editor_WaypointController.cs" />
+     <None Include="Assets\Editor\Vuforia\sawsplitter\authoringinfo.xml" />
      <None Include="Assets\Editor\Vuforia\VuforiaMars_VuMark\authoringinfo.xml" />
      <None Include="Assets\Editor\Vuforia\Tablesaw Hood 1\authoringinfo.xml" />
      <None Include="Assets\Editor\Vuforia\CylinderTargetTextures\VuforiaMars_Images\authoringinfo.xml" />

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+<Tracking>
+<ModelTarget name="sawsplitter" motionHint="static"/>
+
+</Tracking>
+
+<Assembly name="sawsplitters_assembly" assemblyId="377ee48746af4eb79ef74eb48f67715b">
+<Part name="sawsplitter" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="splitter" translation="-0.117835 0.0509194 0.46639" rotation="AD: 0.9999963828295545 0.029197663175321888 0.09714701860786248 215.231" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARConfig>

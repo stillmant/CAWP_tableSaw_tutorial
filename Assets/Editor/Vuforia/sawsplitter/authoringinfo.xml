@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARInfo>
+<TargetSet version="14.0" toolVersion="8.6.7">
+<ModelTarget name="sawsplitter" targetId="3577b69fc6174e2aa23cf7f1ecaede84" version="11.1" toolVersion="8.6.7" bbox="-0.119297 -0.270305 -0.019545 0.098671 0.071695 0.131474" previewImage="3577b69fc6174e2aa23cf7f1ecaede84_preview.jpg"/>
+
+</TargetSet>
+
+<Assembly name="sawsplitters_assembly" assemblyId="377ee48746af4eb79ef74eb48f67715b">
+<Part name="sawsplitter" translation="0 0 0" rotation="AD: 0 0 1 0"/>
+<EntryPoint name="splitter" translation="-0.117835 0.0509194 0.46639" rotation="AD: 0.9999963828295545 0.029197663175321888 0.09714701860786248 215.231" image="sawsplitter_splitter.png" trained="no">
+
+</EntryPoint>
+
+</Assembly>
+
+</QCARInfo>

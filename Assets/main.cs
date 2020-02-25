@@ -10,7 +10,7 @@ public class main : MonoBehaviour
     public RawImage bladeIcon, bladeChange, backPlane;
     public int step = 0;
     
-    public GameObject hood;
+    public GameObject hood, splitter;
 
     private GameObject guideViewRenderer;
 
@@ -30,7 +30,6 @@ public class main : MonoBehaviour
         guideViewRenderer = GameObject.Find("GuideViewRenderer");
     }
 
-    // Update is called once per frame
     void changeStep()
     {
         // State tracker (activate text and AR elements based 
@@ -101,36 +100,40 @@ public class main : MonoBehaviour
                 uiText.text = "Loosen the splitter and move out of the way"; // GOOD PLACE TO USE MODEL TARGET
                 break;
             case 15:
-                uiText.text = "Loosen locking screw on main spindle (AR arrow pointing to screw)";
+                uiText.text = "";
+                backPlane.gameObject.SetActive(false);
                 break;
             case 16:
-                uiText.text = "Unscrew main spindle counter clockwise and remove";
+                uiText.text = "Loosen locking screw on main spindle (AR arrow pointing to screw)";
                 break;
             case 17:
-                uiText.text = "Replace blade. \nCAUTION: Blade teeth must face right";
+                uiText.text = "Unscrew main spindle counter clockwise and remove";
                 break;
             case 18:
-                uiText.text = "Check blade is flush and hand tighten main spindle (AR arrow clockwise)";
+                uiText.text = "Replace blade. \nCAUTION: Blade teeth must face right";
                 break;
             case 19:
-                uiText.text = "Tighten lock screw";
-                break;
-            case 20:
                 uiText.text = "Check blade is flush and hand tighten main spindle (AR arrow clockwise)";
                 break;
+            case 20:
+                uiText.text = "Tighten lock screw";
+                break;
             case 21:
-                uiText.text = "Move splitter back, making sure there is enough clearance and tighten"; // TODO: AR wireframe could be used here
+                uiText.text = "Check blade is flush and hand tighten main spindle (AR arrow clockwise)";
                 break;
             case 22:
-                uiText.text = "Close the fence \nCheck both sides are secure (AR arrow)";
+                uiText.text = "Move splitter back, making sure there is enough clearance and tighten"; // TODO: AR wireframe could be used here
                 break;
             case 23:
-                uiText.text = "Slide table back to its original position (AR arrow)";
+                uiText.text = "Close the fence \nCheck both sides are secure (AR arrow)";
                 break;
             case 24:
-                uiText.text = "On the touchscreen, select \"yes\" and select the blade you installed from the database";
+                uiText.text = "Slide table back to its original position (AR arrow)";
                 break;
             case 25:
+                uiText.text = "On the touchscreen, select \"yes\" and select the blade you installed from the database";
+                break;
+            case 26:
                 uiText.text = "FIN!";
                 break;
             default:
