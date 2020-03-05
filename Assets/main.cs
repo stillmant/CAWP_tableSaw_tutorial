@@ -10,7 +10,7 @@ public class main : MonoBehaviour
     public RawImage bladeIcon, bladeChange, backPlane;
     public int step = 0;
     
-    public GameObject hood, splitter;
+    public GameObject hood;
 
     private GameObject guideViewRenderer;
 
@@ -28,6 +28,7 @@ public class main : MonoBehaviour
         hood.gameObject.SetActive(false);
 
         guideViewRenderer = GameObject.Find("GuideViewRenderer");
+        guideViewRenderer.gameObject.SetActive(false);
     }
 
     void changeStep()
@@ -97,20 +98,23 @@ public class main : MonoBehaviour
                 uiText.text = "Find the Allen key in the tool box"; // TODO: might want to make model of the tool and hover/ spin it
                 break;
             case 14:
-                uiText.text = "Loosen the splitter and move out of the way"; // GOOD PLACE TO USE MODEL TARGET
+                uiText.text = "Find the \"Fissure\" target (may be hidden by blade) and tap \"Next\""; // GOOD PLACE TO USE MODEL TARGET
                 break;
             case 15:
-                uiText.text = "";
+                uiText.text = ""; // Loosen the nut on the splitter using short-side of allen key and move it out of the way then tap "next"
                 backPlane.gameObject.SetActive(false);
                 break;
             case 16:
-                uiText.text = "Loosen locking screw on main spindle (AR arrow pointing to screw)";
+                // Change AR element on fissure target
+                uiText.text = ""; // Loosen locking screw on main spindle using the long-side of allen key and remove. Set aside and tap "next" when complete
+                //backPlane.gameObject.SetActive(true);
                 break;
             case 17:
-                uiText.text = "Unscrew main spindle counter clockwise and remove";
+                backPlane.gameObject.SetActive(true);
+                uiText.text = "Replace blade. \nCAUTION: Blade teeth must face right and blade should be flush against spindle.";
                 break;
             case 18:
-                uiText.text = "Replace blade. \nCAUTION: Blade teeth must face right";
+                uiText.text = "Find the \"Fissure\" target again and tap \"Next\"";
                 break;
             case 19:
                 uiText.text = "Check blade is flush and hand tighten main spindle (AR arrow clockwise)";
@@ -135,6 +139,12 @@ public class main : MonoBehaviour
                 break;
             case 26:
                 uiText.text = "FIN!";
+                break;
+            case 27:
+                uiText.text = "";
+                break;
+            case 28:
+                uiText.text = "";
                 break;
             default:
                 Debug.Log(step);
